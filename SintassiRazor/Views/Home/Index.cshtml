@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    string nome = "Yari";
+    string cognome = "Narducci";
+
+    int n = 10; 
+    int somma= SommaNumeri(n);
+
+    string frase = "nel mezzo del cammin di nostra vita";
+    int conteggio = 0;
+
+    foreach(char a in frase)
+    {
+        if (Char.ToLower(a)=='a')
+        {
+            conteggio++;
+        }
+    }
+}
+
+@functions {
+    public int SommaNumeri(int n)
+    {
+        int somma = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            somma += i;
+        }
+        return somma;
+    }
+}
+
+
+
+<div>
+    <h1 class="display-4 text-center">Razor </h1>
+    <div>
+        1. Dichiarare una variabile valorizzandola con il nostro nome.
+        Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+        Stampare il nostro nome e cognome all'interno di un tag h2.
+    </div>
+    <h2>
+        @nome @cognome
+    </h2>
+    <div>
+        2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+        Stampare dentro uno span il risultato.
+    </div>
+    <span>La somma dei numeri da 1 a @n è: @somma</span>
+    <div>
+        3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+    </div>
+    <div>
+        Nella frase @frase sono contenuti @conteggio lettere a!!!
+    </div>
+</div>
