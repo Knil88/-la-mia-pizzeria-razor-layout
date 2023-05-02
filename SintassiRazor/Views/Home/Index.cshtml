@@ -28,6 +28,23 @@
     // Filtrare solo i numeri compresi tra 20 e 70
 
     var numeriFiltrati = numeri.Where(n => n >= 20 && n <= 70).ToList();
+
+    DateTime data = DateTime.Now;
+
+    string dataFormattata = data.ToString("yyyy-MM-dd HH:mm:ss");
+
+    // Ottenere la data di oggi utilizzando la classe DateTime
+    DateTime oggi = DateTime.Now;
+
+    // Calcolare la data di 7 giorni fa
+    DateTime data7GiorniFa = oggi.AddDays(-7);
+
+    // Ottenere il nome del giorno della settimana di oggi
+    string nomeGiornoSettimanaOggi = oggi.ToString("dddd");
+
+    // Calcolare il giorno della settimana tra un anno nello stesso giorno e mese di oggi
+    DateTime giornoSettimanaTraUnAnno = oggi.AddYears(1);
+    string nomeGiornoSettimanaTraUnAnno = giornoSettimanaTraUnAnno.ToString("dddd");
 }
 
 @functions {
@@ -40,6 +57,8 @@
         }
         return somma;
     }
+    
+  
 }
 
 
@@ -84,3 +103,25 @@
         }
     </ul>
 </div>
+
+<div>
+    5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+</div>
+<p>
+    La data di oggi è:<br />
+    @dataFormattata
+</p>
+
+<div>
+    6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina<br />
+    a. la data di 7 giorni fa<br />
+    b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)<br />
+    c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)<br />
+</div>
+<p>Data di 7 giorni fa: @data7GiorniFa.ToString("dd/MM/yyyy")</p>
+<p>Oggi è: @nomeGiornoSettimanaOggi</p>
+<p>Il giorno della settimana tra un anno nello stesso giorno e mese di oggi sarà: @nomeGiornoSettimanaTraUnAnno</p>
+
+
+
+
